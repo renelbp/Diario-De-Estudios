@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diario de Estudio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="contenedor">
+    <h1>Diario de Estudio 📚</h1>
+
+    <section class="racha">
+      <p class="racha-numero" id="rachaNumero">0 🔥</p>
+      <p class="racha-texto" id="rachaTexto">días de racha</p>
+      <p class="racha-mejor" id="mejorRacha">Mejor racha: 0 días 🏆</p>
+      <p class="racha-mejor" id="minutosSemana">Esta semana: 0 min ⏱️</p>
+      <div id="weeklyGoal">
+        <p class="racha-mejor" id="goalInvite">Fija tu objetivo semanal para motivarte 🎯</p>
+        <p class="racha-mejor" id="goalProgress" hidden>0 de 0 min</p>
+        <div id="goalBar" class="goal-bar" role="progressbar" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0" aria-valuetext="0 de 0 min" hidden>
+          <div id="goalFill" class="goal-fill"></div>
+        </div>
+        <p class="racha-mejor" id="goalAchieved" hidden>¡Objetivo cumplido! 🎉</p>
+        <label class="goal-label">
+          Objetivo semanal (min)
+          <input type="text" id="goalInput" inputmode="numeric" placeholder="Ej: 120">
+        </label>
+        <button type="button" id="goalSave">Guardar objetivo</button>
+        <button type="button" id="goalClear" hidden>Quitar objetivo</button>
+        <p class="error" id="goalError"></p>
+      </div>
+      <p class="racha-mejor" id="diasMes">Este mes: 0 días 📅</p>
+    </section>
+
+    <section class="tarjeta">
+      <h2>Mapa de calor</h2>
+      <ul id="heatGrid" class="heat-grid" aria-label="Días estudiados de las últimas 12 semanas"></ul>
+      <ul class="heat-legend" aria-label="Leyenda del mapa de calor">
+        <li><span class="heat-cell heat-0"></span>Sin estudio</li>
+        <li><span class="heat-cell heat-1"></span>1–29 min</li>
+        <li><span class="heat-cell heat-2"></span>30–59 min</li>
+        <li><span class="heat-cell heat-3"></span>60–119 min</li>
+        <li><span class="heat-cell heat-4"></span>120+ min</li>
+        <li><span class="heat-cell heat-future"></span>Día futuro</li>
+      </ul>
+    </section>
+
+    <section class="tarjeta">
+      <h2>Registrar sesión</h2>
+      <form id="formulario">
+        <label>
+          Fecha
+          <input type="date" id="fecha" required>
+        </label>
+        <label>
+          Tema
+          <input type="text" id="tema" placeholder="Ej: JavaScript" required>
+        </label>
+        <label>
+          Minutos
+          <input type="number" id="minutos" min="1" placeholder="30" required>
+        </label>
+        <button type="submit">Guardar sesión</button>
+        <p class="error" id="error"></p>
+      </form>
+    </section>
+
+    <section class="tarjeta">
+      <h2>Sesiones</h2>
+      <ul id="lista" class="lista"></ul>
+      <p id="sinSesiones" class="sin-sesiones">Todavía no hay sesiones. ¡Empieza hoy!</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
